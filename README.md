@@ -11,8 +11,7 @@ This is an interative dashboard to explore the ["USGS All Earthquakes from the P
 ## Features
 **The Map**
 
-  The map is set to centered at GeoCoordinate [37.6000, -95.6650] (the United States), with a zoom level of 4.5. The map is zoomable with each marker on the map indicates an incident of earthquake.
-  
+  The map is set to centered at GeoCoordinate [37.6000, -95.6650] (the United States), with a zoom level of 4.5. Each marker on the map indicates an incident of earthquake. The map is zoomable. You can also move the map by click and drag. 
   <img width="959" alt="image" src="https://user-images.githubusercontent.com/120543690/229026806-59a5c463-8957-407b-812c-732f55437c0b.png">
 
 **Markers**
