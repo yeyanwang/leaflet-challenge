@@ -50,12 +50,12 @@ d3.json(url).then((data) => {
         onEachFeature: bindPopUp
     }).addTo(myMap);
 
-    // Seting up the legend
+    // Setting up the legend
     var legend = L.control({position: 'bottomright'});
 
     legend.onAdd = () => {
-        var div = L.DomUtil.create('div', 'info legend'),
-            grades = [-10, 10, 30, 50, 70, 90];
+        var div = L.DomUtil.create('div', 'info legend');
+        grades = [-10, 10, 30, 50, 70, 90];
 
         // Looping through our intervals and generating a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
