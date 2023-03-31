@@ -23,7 +23,7 @@ This is an interative dashboard to explore the ["USGS All Earthquakes from the P
   
 **Legend**
 
-  - The legend showing the depth and their corresponding color.
+  - The legend showing the depth and their corresponding color
 
 ## Credits
 - Leaflet 
