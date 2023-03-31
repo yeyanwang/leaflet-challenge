@@ -9,7 +9,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap</a> contributors'
 }).addTo(myMap);
 
-// Colors for the circles and legend based on depth
+// Getting the colors for the circles and legend based on depth
 function getColor(depth) {
     return depth >= 90 ? "#FF0D0D" :
         depth < 90 && depth >= 70 ? "#FF4E11" :
@@ -19,7 +19,7 @@ function getColor(depth) {
                                     "#69B34C";
 }
 
-// Draw the circles
+// Drawing the circles
 function drawCircle(point, latlng) {
     let mag = point.properties.mag;
     let depth = point.geometry.coordinates[2];
@@ -32,7 +32,7 @@ function drawCircle(point, latlng) {
     })
 }
 
-// Display info when the feature is clicked
+// Displaying info when the feature is clicked
 function bindPopUp(feature, layer) {
     layer.bindPopup(`Location: ${feature.properties.place} <br> Magnitude: ${feature.properties.mag} <br> Depth: ${feature.geometry.coordinates[2]}`);
 }
@@ -50,14 +50,14 @@ d3.json(url).then((data) => {
         onEachFeature: bindPopUp
     }).addTo(myMap);
 
-    // Set up the legend
+    // Seting up the legend
     var legend = L.control({position: 'bottomright'});
 
     legend.onAdd = () => {
         var div = L.DomUtil.create('div', 'info legend'),
             grades = [-10, 10, 30, 50, 70, 90];
 
-        // loop through our density intervals and generate a label with a colored square for each interval
+        // Looping through our intervals and generating a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
