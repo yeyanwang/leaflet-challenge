@@ -22,6 +22,9 @@ See below snippet of the map:
   - The size of the marker scales with the earthquake magnitude level 
   - The color of the marker changes with the depth level
   - Each marker has a tooltip with the Magnitude, the location and depth
+
+    <img width="695" alt="image" src="https://user-images.githubusercontent.com/120543690/229031857-a356e461-e4d4-4b0b-90d8-6207f652f369.png">
+
   
 **Legend**
 
