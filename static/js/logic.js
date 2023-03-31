@@ -11,20 +11,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Colors for the circles and legend based on depth
 function getColor(depth) {
-    switch (true) {
-        case (depth >= 90):
-            return "#FF0D0D";
-        case (depth < 90 && depth >= 70):
-            return "#FF4E11";
-        case (depth < 70 && depth >= 50):
-            return "#FF8E15";
-        case (depth < 50 && depth >= 30):
-            return "#FFB92E";
-        case (depth < 30 && depth >= 10):
-            return "#ACB334";
-        case (depth < 10 && depth >= -10):
-            return "#69B34C";
-    }
+    return depth >= 90 ? "#FF0D0D" :
+        depth < 90 && depth >= 70 ? "#FF4E11" :
+        depth < 70 && depth >= 50 ? "#FF8E15" :
+        depth < 50 && depth >= 30 ? "#FFB92E" :
+        depth < 30 && depth >= 10 ? "#ACB334" :
+                                    "#69B34C";
 }
 
 // Draw the circles
@@ -63,7 +55,7 @@ d3.json(url).then((data) => {
 
     legend.onAdd = () => {
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = [-10, 10, 30, 50, 70, 90]
+            grades = [-10, 10, 30, 50, 70, 90];
 
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
