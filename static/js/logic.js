@@ -1,13 +1,54 @@
+// Two overlay groups
+var earthquakeLayer = new L.layerGroup();
+var tectLayer = new L.layerGroup();
+
+overlays = {
+    Earthquakes: earthquakeLayer,
+    "Tectonic Plates":tectLayer
+}
+
+// Adding the tile layers
+var geoLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap</a> contributors'
+})
+
+var satelliteLayer = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    maxZoom: 18,
+    id: "mapbox.satellite",
+    accessToken: API_KEY
+  });
+
+  var grayscaleLayer = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+  attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+  tileSize: 512,
+  maxZoom: 18,
+  zoomOffset: -1,
+  id: "mapbox/light-v10",
+  accessToken: API_KEY
+});
+
+
+
+// base layers
+baseLayers = {
+    "Default": geoLayer, 
+    Satellite: satelliteLayer, 
+    "Gray Scale": grayscaleLayer
+} 
+
 // Creating the map object
 var myMap = L.map("map", {
     center: [37.6000, -95.6650],
-    zoom: 4.5
+    zoom: 4.5, 
+    // Display on load
+    layers: [geoLayer, earthquakeLayer]
 });
 
-// Adding the tile layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap</a> contributors'
-}).addTo(myMap);
+// Layer control
+L.control.layers(baseLayers, overlays, {
+    collapsed: false
+  }).addTo(myMap);
 
 // Getting the colors for the circles and legend based on depth
 function getColor(depth) {
@@ -48,7 +89,7 @@ d3.json(url).then((data) => {
     L.geoJSON(features, {
         pointToLayer: drawCircle,
         onEachFeature: bindPopUp
-    }).addTo(myMap);
+    }).addTo(earthquakeLayer);
 
     // Setting up the legend
     var legend = L.control({position: 'bottomright'});
@@ -66,4 +107,17 @@ d3.json(url).then((data) => {
         return div;
     };
     legend.addTo(myMap);
-});
+})
+
+
+// The link to get the tectonic plate boundaries data
+var tectonicURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
+
+d3.json(tectonicURL).then((tectData) => {
+    L.geoJSON(tectData, {
+        color: "rgb(255, 94, 0)",
+        weight: 2
+    }).addTo(tectLayer);
+
+    tectLayer.addTo(myMap);
+})
