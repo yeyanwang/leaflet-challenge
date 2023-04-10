@@ -11,11 +11,20 @@ This is an interative dashboard to explore the ["USGS All Earthquakes from the P
 ## Features
 **The Map**
 
-  The map is set to centered at GeoCoordinate [37.6000, -95.6650] (the United States), with a zoom level of 4.5. Each marker on the map indicates an incident of earthquake. The map is zoomable. You can also move the map by click and drag. 
+  The map is set to centered at GeoCoordinate [37.6000, -95.6650] (the United States), with a zoom level of 2.5. Each marker on the map indicates an incident of earthquake, and the orange lines across the map indicate the tectonic plates boundaries. The map is zoomable. You can also move the map by click and drag to explore different areas. 
 
-See below snippet of the map:
+See below snippet:
+
+  ![image](https://user-images.githubusercontent.com/120543690/230995887-590a7427-9056-4b53-9c3c-461a4a0b1866.png)
   
-  <img width="959" alt="image" src="https://user-images.githubusercontent.com/120543690/229026806-59a5c463-8957-407b-812c-732f55437c0b.png">
+**Layer Control**
+
+The map has 3 base maps and 2 overlays to choose from. 
+- The base map layers are the outdoor, satellite (default), and gray scale, you can check a different circle to toggle between the base maps
+- The overlays are Earthquakes layer and Tectonic Plates layer, you can select one or more overlays to visualize them on the map
+
+  ![image](https://user-images.githubusercontent.com/120543690/230997542-82c7ecbe-9273-4738-a824-b5988bc76ff5.png)
+
 
 **Markers**
 
@@ -35,3 +44,4 @@ See below snippet of the map:
 - D3
 - USGS
 - My Instructor: Kevin Lee
+- Tectonic Plates Provider: Hugo Ahlenius, Nordpil and Peter Bird ([Check out their github repo here](https://github.com/fraxen/tectonicplates))
