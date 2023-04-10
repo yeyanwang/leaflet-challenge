@@ -32,7 +32,7 @@ var satelliteLayer = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{
 
 // base layers
 baseLayers = {
-    "Default": geoLayer, 
+    Outdoor: geoLayer, 
     Satellite: satelliteLayer, 
     "Gray Scale": grayscaleLayer
 } 
@@ -40,9 +40,9 @@ baseLayers = {
 // Creating the map object
 var myMap = L.map("map", {
     center: [37.6000, -95.6650],
-    zoom: 4.5, 
+    zoom: 2.5, 
     // Display on load
-    layers: [geoLayer, earthquakeLayer]
+    layers: [satelliteLayer, earthquakeLayer]
 });
 
 // Layer control
