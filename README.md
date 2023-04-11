@@ -1,12 +1,31 @@
 # Earthquake Dashboard
 
-## Background 
+## Project Description
   The United States Geological Survey, or USGS for short, is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment, and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes.
 
   The USGS is interested in building a new set of tools that will allow them to visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. 
 
-## Description 
 This is an interative dashboard to explore the ["USGS All Earthquakes from the Past 7 Days" dataset](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson). This dashboard contains a map to visualize USGS data that will allow them to better educate the public and other government organizations (and hopefully secure more funding) on issues facing our planet.
+
+## Built with
+- Leaflet 
+- HTML
+- CSS
+- JavaScript
+- D3
+
+## Getting Started 
+**Prerequisites**
+
+Make sure you have installed all of the following prerequisites on your development machine:
+- Your favoriate code editor (e.g. VScode, etc.)
+- Your favoriate browser (e.g. Google Chrome, Firefox, etc.)
+
+**Installation**
+- Clone this repo and save it in your local directory
+- git clone `https://github.com/yeyanwang/leaflet-challenge.git`
+- Open the repo in a code editor to see the codes
+- Visit [localhost: 5000](http://localhost:5000) in your browser
 
 ## Features
 **The Map**
@@ -38,7 +57,7 @@ The map has 3 base maps and 2 overlays to choose from.
 **Legend**
 
   - The legend showing the depth and their corresponding color
-
+  
 ## Credits
 - Leaflet 
 - D3
