@@ -27,6 +27,9 @@ Make sure you have installed all of the following prerequisites on your developm
 - git clone `https://github.com/yeyanwang/leaflet-challenge.git`
 - Open the repo in a code editor to see the codes
 - Add and save your API key inside of a `config.js` file inside of the `static/js/`folder
+
+  ` export const API_KEY = <your API key>` 
+
 - Visit [localhost: 5000](http://localhost:5000) in your browser
 
 ## Features
