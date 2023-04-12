@@ -1,8 +1,10 @@
+import {API_KEY} from './config.js';
+
 // Two overlay groups
 var earthquakeLayer = new L.layerGroup();
 var tectLayer = new L.layerGroup();
 
-overlays = {
+var overlays = {
     Earthquakes: earthquakeLayer,
     "Tectonic Plates":tectLayer
 }
@@ -28,10 +30,8 @@ var satelliteLayer = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{
   accessToken: API_KEY
 });
 
-
-
 // base layers
-baseLayers = {
+var baseLayers = {
     Outdoor: geoLayer, 
     Satellite: satelliteLayer, 
     "Gray Scale": grayscaleLayer
