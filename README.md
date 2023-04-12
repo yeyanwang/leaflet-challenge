@@ -20,11 +20,13 @@ This is an interative dashboard to explore the ["USGS All Earthquakes from the P
 Make sure you have installed all of the following prerequisites on your development machine:
 - Your favoriate code editor (e.g. VScode, etc.)
 - Your favoriate browser (e.g. Google Chrome, Firefox, etc.)
+- Get a mapbox API key 
 
 **Installation**
 - Clone this repo and save it in your local directory
 - git clone `https://github.com/yeyanwang/leaflet-challenge.git`
 - Open the repo in a code editor to see the codes
+- Add and save your API key inside of a `config.js` file inside of the `static/js/`folder
 - Visit [localhost: 5000](http://localhost:5000) in your browser
 
 ## Features
